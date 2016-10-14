@@ -1,7 +1,7 @@
 {
   "name": "Smart Answers",
-  "website": "https://www.gov.uk/",
-  "repository": "https://github.com/alphagov/smart-answers",
+  "website": "https://ask.gov.je/",
+  "repository": "https://github.com/StatesOfJersey/smart-answers",
   "success_url": "/",
   "env": {
     "GOVUK_APP_DOMAIN": "integration.publishing.service.gov.uk",
