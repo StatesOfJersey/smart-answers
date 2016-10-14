@@ -11,7 +11,7 @@ class SmartAnswersController < ApplicationController
   end
 
   def show
-    set_slimmer_artefact(@presenter.artefact)
+
     respond_to do |format|
       format.html { render }
       format.json {
@@ -91,7 +91,7 @@ private
   end
 
   def set_header_footer_only
-    set_slimmer_headers(template: 'header_footer_only')
+
   end
 
   def set_expiry(duration = 30.minutes)
