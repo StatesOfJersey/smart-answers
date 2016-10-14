@@ -19,6 +19,22 @@ $is-ie: false !default;
 // Styles
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
 
+body {
+  font-family: 'promixa-nova', arial, sans-serif;
+}
+
+h1 {
+  font-size:36px;
+  font-weight:normal;
+}
+
+.button {
+  background: #095aa2;
+  color:white;
+  padding:10px 20px;
+  text-decoration:none;
+}
+
 .smart_answer {
   // Previous answers block
   .previous-answers {
