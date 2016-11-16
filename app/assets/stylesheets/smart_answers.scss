@@ -33,13 +33,26 @@ h1 {
   color:white;
   padding:10px 20px;
   text-decoration:none;
+  border:0;
+  font-size:1rem;
+  text-transform:uppercase;
+  cursor:pointer;
+
+  &:hover, &:active, &:focus {
+    background:lighten(#095aa2, 10%);
+  }
 }
+
+#wrapper {
+  max-width:960px;
+}
+
 
 .smart_answer {
   // Previous answers block
   .previous-answers {
     // h2 is used for multiple questions on a page
-    max-width: 38em;
+    max-width: 38rem;
     h2 {
       @include core-19;
       padding-left: 32px;
@@ -47,6 +60,10 @@ h1 {
         padding-left: 16px;
       }
     }
+  }
+
+  .visuallyhidden {
+    display:none;
   }
 
   .outcome {
@@ -77,11 +94,14 @@ h1 {
   }
 
   .done-questions {
-    margin: 0;
+    margin:5rem 0 0 0;
     padding: 0 0 1em;
 
     table {
       width: auto;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin: 1em 0 2em;
 
       .previous-answers-title {
         @include bold-19;
@@ -121,7 +141,7 @@ h1 {
         .section {
           border-top: 1px solid $border-colour;
           td {
-            padding: 0.5em 1em 0.3em inherit;
+            padding: 0.75em 0.5em 0.75em 0;
             width: 40%;
             &.link-right {
               width: 10%;
@@ -292,7 +312,28 @@ h1 {
 
     ul {
       label {
-        margin-left: 0.25em;
+        margin-left: 0em;
+
+        &.selectable {
+          padding:18px 50px 15px 25px;
+          background:#dee0e2;
+          display:block;
+          position:relative;
+          cursor:pointer;
+          clear:left;
+          float:left;
+
+          margin:5px 0 5px 0;
+
+          &:hover, &:focus, &:active {
+            background:darken(#dee0e2, 20%);
+          }
+
+          input {
+            margin-right:10px;
+          }
+
+        }
       }
 
       select {
