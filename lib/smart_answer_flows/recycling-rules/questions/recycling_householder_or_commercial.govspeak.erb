@@ -1,0 +1,11 @@
+<% content_for :title do %>
+Are you a householder or a commercial customer?
+<% end %>
+
+<% content_for :body do %>
+  <% options(
+  "householder": "Householder",
+  "commercial": "Commercial customer"
+) %>
+
+<% end %>
