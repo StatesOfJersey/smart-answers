@@ -1,0 +1,3 @@
+PLEK_SERVICE_CONTENTAPI_URI: https://www.gov.uk/api
+PLEK_SERVICE_WHITEHALL_ADMIN_URI: https://www.gov.uk
+PLEK_SERVICE_STATIC_URI: assets-origin.integration.publishing.service.gov.uk
