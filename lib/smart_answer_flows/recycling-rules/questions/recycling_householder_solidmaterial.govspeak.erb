@@ -1,0 +1,16 @@
+<% content_for :title do %>
+What is your item mostly made of?
+<% end %>
+
+<% content_for :body do %>
+  <% options(
+  "plastic": "Plastic",
+  "paper": "Paper",
+  "metal": "Metal",
+  "organic": "Organic Material",
+  "fabric": "Fabric",
+  "glass": "Glass",
+  "other": "Other"
+) %>
+
+<% end %>

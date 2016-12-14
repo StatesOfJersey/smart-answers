@@ -10,277 +10,235 @@ module SmartAnswer
         option "householder"
         option "commercial"
 
-
         next_node do |response|
           case response
           when 'householder'
-            question :recycling_householder? #Q2
+            question :recycling_householder_liquidsolid? #Q2
           when 'commercial'
             question :recycling_commercial? #Q3
           end
         end
       end
 
-      # ## Householder - Type of Item
+
+
+
+      # ## Householder - Liquid or Solid
       # ##
       # ## Q2
-      multiple_choice :recycling_householder? do
-        option "asbestos_householder"
-        option "ash"
-        option "aerosols"
-        option "aluminiumtrays"
-        option "animalbedding"
-        option "batteries_householder"
-        option "beds"
-        option "books"
-        option "britawaterfilters"
-        option "bicycles"
-        option "bricks"
-        option "bubblewrap"
-        option "cars"
-        option "carpetsrugs"
-        option "carbatteries_householder"
-        option "carrierbags"
-        option "cardboard_householder"
-        option "catalogues"
-        option "cdsdvdsgames"
-        option "ceramicscultery_householder"
-        option "clingfilm"
-        option "clotheshangers"
-        option "chemicals"
-        option "christmastree"
-        option "christmastreelights"
-        option "cratespalletboards"
-        option "coffeepods"
-        option "crisppackets"
-        option "cookingoil_householder"
-        option "coins"
-        option "cork"
-        option "clinicalwaste"
-        option "curtainscushions"
-        option "diywaste"
-        option "smallelectricalitems_householder"
-        option "fatfryer"
-        option "fat"
-        option "foodwaste"
-        option "largeelectricalitems_householder"
-        option "furniture"
-        option "foodpackaging"
-        option "gasbottles"
-        option "tools"
-        option "glass"
-        option "glasses"
-        option "computerparts"
-        option "hearingaids"
-        option "householdwaste"
-        option "inhalers"
-        option "ironingboard"
-        option "junkmail"
-        option "jewellery"
-        option "keys_householder"
-        option "kitchenunits"
-        option "kosangas"
-        option "laptoptablets"
-        option "lightbulbs_householder"
-        option "manure"
-        option "mattresses"
-        option "mobilephonebattery"
-        option "cartons"
-        option "metalpackaging"
-        option "mobilephones"
-        option "monitors"
-        option "medicine"
-        option "musicalinstruments"
-        option "nappies"
-        option "paint_householder"
-        option "paper_householder"
-        option "papercoffeecups"
-        option "papertowels"
-        option "petbedding"
-        option "petfood"
-        option "petwaste"
-        option "photographs"
-        option "plasticfilmtubstrays"
-        option "plasticbags"
-        option "plasterboard"
-        option "printercartridges_householder"
-        option "plasticbottles_householder"
-        option "plasticbottletops"
-        option "pyrex"
-        option "scrapmetal"
-        option "sofaschairs"
-        option "soilimprover"
-        option "sellotape"
-        option "stamps"
-        option "stones"
-        option "tetrapacks"
-        option "television"
-        option "telephonedirectory"
-        option "textiles"
-        option "greenwaste_householder"
-        option "tyres_householder"
+      
+      multiple_choice :recycling_householder_liquidsolid? do
+        option "liquid"
+        option "solid"
 
-
-
-
-        next_node do |response|
+      next_node do |response|
           case response
-          when 'asbestos_householder'
-            outcome :recycling_asbestos_householder #A2
-          when 'ash'
-            outcome :recycling_ash #A4
-          when 'aerosols'
-            outcome :recycling_aerosols #A5
-          when 'aluminiumtrays'
-            outcome :recycling_aluminiumtrays #A6
-          when 'animalbedding'
-            outcome :recycling_animalbedding #A7
-          when 'batteries_householder'
-            outcome :recycling_batteries_householder #A8
-          when 'beds'
-            outcome :recycling_beds #A10
-          when 'books'
-            outcome :recycling_books #A13
-          when 'britawaterfilters'
-            outcome :recycling_britawaterfilters #A14
-          when 'bicycles'
-            outcome :recycling_bicycles #A15
-          when 'bricks'
-            outcome :recycling_bricks #A16
-          when 'bubblewrap'
-            outcome :recycling_bubblewrap #A18
-          when 'cars'
-            outcome :recycling_cars #A19
-          when 'carpertsrugs'
-            outcome :recycling_carpetsrugs #A20 
-          when 'carbatteries_householder'
-            outcome :recycling_carbatteries_householder #A21 
-          when 'carrierbags'
-            outcome :recycling_carrierbags #A23
-          when 'cardboard_householder'
-            outcome :recycling_cardboard_householder #A24
-          when 'catalogues'
-            outcome :recycling_catalogues #A26
-          when 'cdsdvdsgames'
-            outcome :recycling_cdsdvdsgames #A27
-          when 'ceramicscultery_householder'
-            outcome :recycling_ceramicscultery_householder #A28
-          when 'clingfilm'
-            outcome :recycling_clingfilm #A29
-          when 'clotheshangers'
-            outcome :recycling_clotheshangers #A30
+          when 'liquid'
+            question :recycling_householder_liquids? #Q3
+          when 'solid'
+            question :recycling_householder_iselectrical? #Q4
+          end
+        end
+      end
+
+
+
+
+
+      # ## Householder - What Liquid?
+      # ##
+      # ## Q3
+      
+      multiple_choice :recycling_householder_liquids? do
+        option "chemicals"
+        option "fat"
+        option "paint_householder"
+
+      next_node do |response|
+          case response
           when 'chemicals'
             outcome :recycling_chemicals #A31
-          when 'christmastree'
-            outcome :recycling_christmastree #A32
+          when 'fat'
+            outcome :recycling_fat #A37
+          when 'paint_householder'
+            outcome :recycling_paint_householder #A88
+          end
+        end
+      end
+
+
+
+
+
+      # ## Householder - Is it Electrical?
+      # ##
+      # ## Q4
+      
+      multiple_choice :recycling_householder_iselectrical? do
+        option "yes"
+        option "no"
+
+      next_node do |response|
+          case response
+          when 'yes'
+            question :recycling_householder_electrical? #Q5
+          when 'no'
+            question :recycling_householder_solidmaterial? #Q6
+          end
+        end
+      end
+
+
+
+
+
+      # ## Householder - What electrical item?
+      # ##
+      # ## Q5
+      
+      multiple_choice :recycling_householder_electrical? do
+        option "carbatteries_householder"
+        option "batteries_householder"
+        option "mobilephonebattery"
+        option "christmastreelights"
+        option "computerparts"
+        option "hearingaids"
+        option "fatfryer"
+        option "mobilephones"
+        option "monitors"
+        option "laptoptablets"
+        option "television"
+        option "largeelectricalitems_householder"
+        option "smallelectricalitems_householder"
+
+      next_node do |response|
+        case response
+          when 'batteries_householder'
+            outcome :recycling_batteries_householder #A8
+          when 'carbatteries_householder'
+            outcome :recycling_carbatteries_householder #A21 
           when 'christmastreelights'
             outcome :recycling_christmastreelights #A33
-          when 'cratespalletboards'
-            outcome :recycling_cratespalletboards #A34
-          when 'coffeepods'
-            outcome :recycling_coffeepods #A35
-          when 'crisppackets'
-            outcome :recycling_crisppackets #A36
-          when 'cookingoil_householder'
-            outcome :recycling_cookingoil_householder #A37
-          when 'coins'
-            outcome :recycling_coins #A39
-          when 'cork'
-            outcome :recycling_cork #A40
-          when 'clinicalwaste'
-            outcome :recycling_clinicalwaste #A41
-          when 'curtainscushions'
-            outcome :recycling_curtainscushions #A43
-          when 'diywaste'
-            outcome :recycling_diywaste #A44
-          when 'smallelectricalitems_householder'
-            outcome :recycling_smallelectricalitems_householder #A45
-          when 'fatfryer'
-            outcome :recycling_fatfryer #A46
-          when 'fat'
-            outcome :recycling_fat #A47
-          when 'foodwaste'
-            outcome :recycling_foodwaste #A48
-          when 'largeelectricalitems_householder'
-            outcome :recycling_largeelectricalitems_householder #A49  
-          when 'furniture'
-            outcome :recycling_furniture #A50
-          when 'foodpackaging'
-            outcome :recycling_foodpackaging #A51
-          when 'gasbottles'
-            outcome :recycling_gasbottles #A52
-          when 'tools'
-            outcome :recycling_tools #A53
-          when 'glass'
-            outcome :recycling_glass #A54
-          when 'glasses'
-            outcome :recycling_glasses #A55
           when 'computerparts'
             outcome :recycling_computerparts #A56
           when 'hearingaids'
             outcome :recycling_hearingaids #A57
-          when 'householdwaste'
-            outcome :recycling_householdwaste #A58
-          when 'inhalers'
-            outcome :recycling_inhalers #A59
-          when 'ironingboard'
-            outcome :recycling_ironingboard #A60
-          when 'junkmail'
-            outcome :recycling_junkmail #A61
-          when 'jewellery'
-            outcome :recycling_jewellery #A62
-          when 'keys_householder'
-            outcome :recycling_keys_householder #A63
-          when 'kitchenunits'
-            outcome :recycling_kitchenunits #A65
-          when 'kosangas'
-            outcome :recycling_kosangas #A66
           when 'laptoptablets'
             outcome :recycling_laptoptablets #A67
-          when 'lightbulbs_householder'
-            outcome :recycling_lightbulbs_householder #A68
-          when 'manure'
-            outcome :recycling_manure #A70
-          when 'mattresses'
-            outcome :recycling_mattresses #A71
-          when 'mobilephonebattery'
-            outcome :recycling_mobilephonebattery #A72
-          when 'cartons'
-            outcome :recycling_cartons #A73
-          when 'metalpackaging'
-            outcome :recycling_metalpackaging #A75
+          when 'smallelectricalitems_householder'
+            outcome :recycling_smallelectricalitems_householder #A45
+          when 'fatfryer'
+            outcome :recycling_fatfryer #A46
+          when 'largeelectricalitems_householder'
+            outcome :recycling_largeelectricalitems_householder #A49  
           when 'mobilephones'
             outcome :recycling_mobilephones #A76
+          when 'mobilephonebattery'
+            outcome :recycling_mobilephonebattery #A72
           when 'monitors'
             outcome :recycling_monitors #A77
-          when 'medicine'
-            outcome :recycling_medicine #A78
-          when 'musicalinstruments'
-            outcome :recycling_musicalinstruments #A79
-          when 'nappies'
-            outcome :recycling_nappies #A82
-          when 'paint_householder'
-            outcome :recycling_paint_householder #A88
-          when 'paper_householder'
-            outcome :recycling_paper_householder #A90
-          when 'papercoffeecups'
-            outcome :recycling_papercoffeecups #A92
-          when 'papertowels'
-            outcome :recycling_papertowels #A93
-          when 'petbedding'
-            outcome :recycling_petbedding #A94
-          when 'petfood'
-            outcome :recycling_petfood #A95
-          when 'petwaste'
-            outcome :recycling_petwaste #A96
-          when 'photographs'
-            outcome :recycling_photographs #A97
+          when 'television'
+            outcome :recycling_television #A117
+          
+          end
+        end
+      end
+
+
+
+
+
+      # ## Householder - What Material?
+      # ##
+      # ## Q6
+      
+      multiple_choice :recycling_householder_solidmaterial? do
+
+          option "plastic"
+          option "paper"
+          option "metal"
+          option "organic"
+          option "fabric"
+          option "glass"
+          option "other"
+
+      next_node do |response|
+          case response
+          when 'plastic'
+            question :recycling_householder_plastic? #Q7
+          when 'paper'
+            question :recycling_householder_paper? #Q8
+         when 'metal'
+            question :recycling_householder_metal? #Q9
+         when 'organic'
+            question :recycling_householder_organic? #Q10
+         when 'fabric'
+            question :recycling_householder_fabric? #Q11
+         when 'glass'
+            question :recycling_householder_glass? #Q12
+         when 'other'
+            question :recycling_householder_other? #Q13
+          end
+        end
+      end
+
+
+
+
+      # ## Householder - Plastics?
+      # ##
+      # ## Q7
+      
+      multiple_choice :recycling_householder_plastic? do
+         option "britawaterfilters"
+         option "bubblewrap"
+         option "carrierbags"
+         option "cartons"
+         option "clingfilm"
+         option "cdsdvdsgames"
+         option "clotheshangers"
+         option "crisppackets"
+         option "coffeepods"
+         option "foodpackaging"
+         option "inhalers"
+         option "plasticfilmtubstrays"
+         option "plasticbags"
+         option "printercartridges_householder"
+         option "plasticbottles_householder"
+         option "plasticbottletops"
+         option "pyrex"
+         option "sellotape"
+         option "tetrapacks"
+       
+
+      next_node do |response|
+        case response
+          when 'britawaterfilters'
+            outcome :recycling_britawaterfilters #A14
+          when 'bubblewrap'
+            outcome :recycling_bubblewrap #A18
+          when 'carrierbags'
+            outcome :recycling_carrierbags #A23
+          when 'cartons'
+            outcome :recycling_cartons #A73
+          when 'cdsdvdsgames'
+            outcome :recycling_cdsdvdsgames #A27
+          when 'clingfilm'
+            outcome :recycling_clingfilm #A29
+          when 'clotheshangers'
+            outcome :recycling_clotheshangers #A30   
+          when 'coffeepods'
+            outcome :recycling_coffeepods #A35
+          when 'crisppackets'
+            outcome :recycling_crisppackets #A36
+          when 'foodpackaging'
+            outcome :recycling_foodpackaging #A51
+          when 'inhalers'
+            outcome :recycling_inhalers #A59
           when 'plasticfilmtubstrays'
             outcome :recycling_plasticfilmtubstrays #A98
           when 'plasticbags'
             outcome :recycling_plasticbags #A99
-          when 'plasterboard'
-            outcome :recycling_plasterboard #A100
           when 'printercartridges_householder'
             outcome :recycling_printercartridges_householder #A101
           when 'plasticbottles_householder'
@@ -289,33 +247,273 @@ module SmartAnswer
             outcome :recycling_plasticbottletops #A105
           when 'pyrex'
             outcome :recycling_pyrex #A107
+          when 'sellotape'
+            outcome :recycling_sellotape #A113
+          when 'tetrapacks'
+            outcome :recycling_tetrapacks #A116
+          end
+        end
+      end
+
+
+
+
+      # ## Householder - Paper?
+      # ##
+      # ## Q8
+      
+      multiple_choice :recycling_householder_paper? do
+           option "books"
+           option "catalogues"
+           option "junkmail"
+           option "paper_householder"
+           option "papercoffeecups"
+           option "papertowels"
+           option "photographs"    
+           option "stamps"
+           option "telephonedirectory"
+       
+      next_node do |response|
+        case response
+          when 'books'
+            outcome :recycling_books #A13
+          when 'catalogues'
+            outcome :recycling_catalogues #A26
+          when 'junkmail'
+            outcome :recycling_junkmail #A61
+          when 'paper_householder'
+            outcome :recycling_paper_householder #A90
+          when 'papercoffeecups'
+            outcome :recycling_papercoffeecups #A92
+          when 'papertowels'
+            outcome :recycling_papertowels #A93
+          when 'photographs'
+            outcome :recycling_photographs #A97
+          when 'stamps'
+            outcome :recycling_stamps #A114
+          when 'telephonedirectory'
+            outcome :recycling_telephonedirectory #A118
+          end
+        end
+      end
+
+
+
+
+      # ## Householder - Metal?
+      # ##
+      # ## Q9
+      
+      multiple_choice :recycling_householder_metal? do
+            option "aerosols"
+            option "aluminiumtrays"
+            option "beds"
+            option "bicycles"
+            option "cars"
+            option "coins"
+            option "gasbottles"
+            option "ironingboard"
+            option "jewellery"
+            option "keys_householder"
+            option "kosangas"
+            option "metalpackaging"
+            option "musicalinstruments"
+            option "scrapmetal"
+            option "tools"
+          
+      next_node do |response|
+        case response
+          when 'aerosols'
+            outcome :recycling_aerosols #A5
+          when 'aluminiumtrays'
+            outcome :recycling_aluminiumtrays #A6
+          when 'beds'
+            outcome :recycling_beds #A10
+          when 'bicycles'
+            outcome :recycling_bicycles #A15
+          when 'cars'
+            outcome :recycling_cars #A19
+          when 'coins'
+            outcome :recycling_coins #A39
+          when 'gasbottles'
+            outcome :recycling_gasbottles #A52
+          when 'ironingboard'
+            outcome :recycling_ironingboard #A60
+          when 'jewellery'
+            outcome :recycling_jewellery #A62
+          when 'keys_householder'
+            outcome :recycling_keys_householder #A63
+          when 'kosangas'
+            outcome :recycling_kosangas #A66
+          when 'metalpackaging'
+            outcome :recycling_metalpackaging #A75
           when 'scrapmetal'
             outcome :recycling_scrapmetal #A109
+          when 'musicalinstruments'
+            outcome :recycling_musicalinstruments #A79
+          when 'tools'
+            outcome :recycling_tools #A53
+          end
+        end
+      end
+
+
+
+
+      # ## Householder - Organic?
+      # ##
+      # ## Q10
+      
+      multiple_choice :recycling_householder_organic? do
+            option "ash"
+            option "animalbedding"
+            option "christmastree"
+            option "cork"
+            option "cratespalletboards"
+            option "foodwaste"
+            option "greenwaste_householder"
+            option "householdwaste"
+            option "manure"
+            option "petbedding"
+            option "petfood"
+            option "petwaste"
+            option "soilimprover"
+            option "stones"
+
+      next_node do |response|
+        case response
+          when 'ash'
+            outcome :recycling_ash #A4
+          when 'animalbedding'
+            outcome :recycling_animalbedding #A7
+          when 'christmastree'
+            outcome :recycling_christmastree #A32
+          when 'cork'
+            outcome :recycling_cork #A40
+          when 'cratespalletboards'
+            outcome :recycling_cratespalletboards #A34
+          when 'foodwaste'
+            outcome :recycling_foodwaste #A48
+          when 'householdwaste'
+            outcome :recycling_householdwaste #A58
+          when 'manure'
+            outcome :recycling_manure #A70
+          when 'soilimprover'
+            outcome :recycling_soilimprover #A112
+          when 'stones'
+            outcome :recycling_stones #A115
+          end
+        end
+      end
+
+
+
+      # ## Householder - Fabric?
+      # ##
+      # ## Q11
+      
+      multiple_choice :recycling_householder_fabric? do
+            option "carpetsrugs"
+            option "curtainscushions"
+            option "furniture"
+            option "mattresses"
+            option "sofaschairs"
+            option "textiles"
+
+          
+      next_node do |response|
+        case response
+           when 'carpetsrugs'
+            outcome :recycling_carpetsrugs #A20 
+           when 'curtainscushions'
+            outcome :recycling_curtainscushions #A43
+           when 'furniture'
+            outcome :recycling_furniture #A50
+           when 'mattresses'
+            outcome :recycling_mattresses #A71
            when 'sofaschairs'
             outcome :recycling_sofaschairs #A110
-           when 'soilimprover'
-            outcome :recycling_soilimprover #A112
-           when 'sellotape'
-            outcome :recycling_sellotape #A113
-           when 'stamps'
-            outcome :recycling_stamps #A114
-           when 'stones'
-            outcome :recycling_stones #A115
-           when 'tetrapacks'
-            outcome :recycling_tetrapacks #A116
-           when 'television'
-            outcome :recycling_television #A117
-           when 'telephonedirectory'
-            outcome :recycling_telephonedirectory #A118
            when 'textiles'
             outcome :recycling_textiles #A119
-           when 'greenwaste_householder'
-            outcome :recycling_greenwaste_householder #A120
+           end
+        end
+      end
+
+
+
+
+      # ## Householder - Glass?
+      # ##
+      # ## Q12
+      
+      multiple_choice :recycling_householder_glass? do
+            option "glass"
+            option "glasses"
+            option "lightbulbs_householder"
+       
+      next_node do |response|
+        case response
+          when 'glass'
+            outcome :recycling_glass #A54
+          when 'glasses'
+            outcome :recycling_glasses #A55
+          when 'lightbulbs_householder'
+            outcome :recycling_lightbulbs_householder #A68        
+          end
+        end
+      end
+
+
+
+
+
+      # ## Householder - Other Materials?
+      # ##
+      # ## Q13
+      
+      multiple_choice :recycling_householder_other? do
+          option "asbestos_householder"
+          option "bricks"
+          option "cardboard_householder"
+          option "ceramicscultery_householder"
+          option "clinicalwaste"
+          option "diywaste"
+          option "kitchenunits"
+          option "medicine"
+          option "nappies"
+          option "plasterboard"
+          option "tyres_householder"
+       
+      next_node do |response|
+        case response
+           when 'asbestos_householder'
+            outcome :recycling_asbestos_householder #A2
+           when 'bricks'
+            outcome :recycling_bricks #A16
+           when 'cardboard_householder'
+            outcome :recycling_cardboard_householder #A24
+           when 'ceramicscultery_householder'
+            outcome :recycling_ceramicscultery_householder #A28
+           when 'clinicalwaste'
+            outcome :recycling_clinicalwaste #A41
+           when 'diywaste'
+            outcome :recycling_diywaste #A44
+           when 'kitchenunits'
+            outcome :recycling_kitchenunits #A65      
+           when 'medicine'
+            outcome :recycling_medicine #A78
+           when 'nappies'
+            outcome :recycling_nappies #A82      
+           when 'plasterboard'
+            outcome :recycling_plasterboard #A100
            when 'tyres_householder'
             outcome :recycling_tyres_householder #A122
           end
         end
       end
+    
+
+
 
       # ## Commercial - Type of Item
       # ##
